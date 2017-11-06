@@ -1,8 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import App from './components/App'
+import configureStore from './store'
+import fetchPosts from './actions'
+
+const store = configureStore()
+const initialState = store.getState()
+
+store.dispatch(fetchPosts())
+console.log('initial state:', store.getStore())
+
+store.subscribe(() =>
+  console.log('state changed:', store.getState())
+)
+
+ReactDOM.render(
+  <App store={store} />, 
+  document.getElementById('root')
+);
