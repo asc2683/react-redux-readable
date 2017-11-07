@@ -3,6 +3,6 @@ import appReducer from '../reducers'
 
 import middleware from './middleware'
 
-export default function configureStore(initialstate) {
-  return createStore(initialState)
+export default function configureStore (initialState) {
+  return createStore(appReducer, initialState, middleware)
 }

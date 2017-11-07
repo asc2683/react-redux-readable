@@ -13,6 +13,6 @@ export const fetchPosts = () => thunkCreator({
   ],
 
   // api request
-  promise: fetch('http://localhost:3001', { headers: { 'Authorization': 'whatever-you-want'}})
+  promise: fetch('http://localhost:3001/posts', { headers: { 'Authorization': 'whatever-you-want' } })
              .then(response => response.json())
 })
