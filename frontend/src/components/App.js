@@ -1,15 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Provider } from 'react-redux'
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <header>
-          <h1>Readable</h1>
-        </header>
-      </div>
-    );
-  }
-}
+import ConnectedPostList from '../containers/ConnectedPostList'
 
-export default App;
+const App = ({ store }) =>
+  <Provider store={store}>
+    <div>
+      <ConnectedPostList />
+    </div>
+  </Provider>
+
+export default App
