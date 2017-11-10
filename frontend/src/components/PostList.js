@@ -10,5 +10,5 @@ const PostList = ({ posts }) =>
         </li>
     )}
   </ul>
-debugger;
+
 export default PostList
