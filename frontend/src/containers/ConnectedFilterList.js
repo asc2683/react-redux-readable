@@ -5,17 +5,12 @@ import FilterList from '../components/FilterList'
 import { setFilter, clearFilter } from '../actions'
 
 const mapStateToProps = (state, props) => {
-  const categories = state.posts.reduce((acc, post) => {
-    if (!acc.includes(post.category)) {
-      return [
-        ...acc,
-        post.category
-      ]
-    }
-    return acc
-  }, [])
+  const categories = Object.values(state.categories).reduce(
+    (acc,cur) => acc.concat(cur), [])
 
-  return { categories }
+  return {
+    categories 
+  }
 }
 
 const mapDispatchToProps = (dispatch, props) => 

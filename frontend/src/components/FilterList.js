@@ -7,8 +7,8 @@ const FilterList = ({ categories, setFilter, clearFilter }) =>
       (category, i) =>
         <span key={i.toString()}>
           <Filter
-            name={category}
-            onClick={() => setFilter(category)}
+            name={category.name}
+            onClick={() => setFilter(category.name)}
           />
           {' - '}
         </span>
