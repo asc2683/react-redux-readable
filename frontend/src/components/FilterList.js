@@ -13,7 +13,7 @@ const FilterList = ({ categories, setFilter, clearFilter }) =>
           {' - '}
         </span>
     )}
-    <a href="javascript:void(0)" onClick={clearFilter}>Show all posts</a>
+    <a href="javascript:void(0)" onClick={clearFilter}>show all</a>
   </span>
 
 export default FilterList

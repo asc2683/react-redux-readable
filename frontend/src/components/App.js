@@ -1,19 +1,25 @@
 import React from 'react'
 import { Provider } from 'react-redux'
+import { Route } from 'react-router-dom'
+import { ConnectedRouter } from 'react-router-redux'
 
-import ConnectedPostList from '../containers/ConnectedPostList'
+import { history } from '../store/middleware'
+import MainPage from './MainPage'
+import PostDetail from './PostDetail'
 import ConnectedLoading from '../containers/ConnectedLoading'
-import ConnectedFilterList from '../containers/ConnectedFilterList'
-import ConnectedCreatePost from '../containers/ConnectedCreatePost'
+import ConnectedPostDetail from '../containers/ConnectedPostDetail'
 
 const App = ({ store }) =>
   <Provider store={store}>
-    <div>
-      <ConnectedLoading />
-      <ConnectedFilterList />
-      <ConnectedPostList />
-      <ConnectedCreatePost />
-    </div>
+    <ConnectedRouter history={history}>
+      <div>
+        <h1>Readable</h1>
+        <ConnectedLoading />
+        <hr />
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/post/:id" component={ConnectedPostDetail} />        
+      </div>
+    </ConnectedRouter>
   </Provider>
 
 export default App

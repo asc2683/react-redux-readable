@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import App from './components/App'
 import configureStore from './store'
@@ -19,6 +20,8 @@ store.subscribe(() =>
 )
 
 ReactDOM.render(
-  <App store={store} />, 
+  <BrowserRouter>
+    <App store={store} />
+  </BrowserRouter>, 
   document.getElementById('root')
 );

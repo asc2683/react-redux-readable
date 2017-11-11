@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import Post from './Post'
 
 const PostList = ({ posts }) =>
@@ -6,7 +8,9 @@ const PostList = ({ posts }) =>
     {posts.map(
       (post, i) => 
         <li key={i.toString()}>
-          <Post {...post} />
+          <Link to={`post/${post.id}`}>
+            <Post {...post} />
+          </Link>
         </li>
     )}
   </ul>
