@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import ConnectedPostList from '../containers/ConnectedPostList'
 import ConnectedLoading from '../containers/ConnectedLoading'
 import ConnectedFilterList from '../containers/ConnectedFilterList'
+import ConnectedCreatePost from '../containers/ConnectedCreatePost'
 
 const App = ({ store }) =>
   <Provider store={store}>
@@ -11,6 +12,7 @@ const App = ({ store }) =>
       <ConnectedLoading />
       <ConnectedFilterList />
       <ConnectedPostList />
+      <ConnectedCreatePost />
     </div>
   </Provider>
 
