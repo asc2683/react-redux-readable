@@ -5,7 +5,11 @@ import CreatePost from '../components/CreatePost'
 import { createPost } from '../actions'
 
 const mapStateToProps = (state, props) => {
+  const categories = Object.values(state.categories).reduce(
+    (acc,cur) => acc.concat(cur), [])
+
   return {
+    categories,
     error: state.error && state.error.message
   }
 }

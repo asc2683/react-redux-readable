@@ -1,6 +1,7 @@
 import React from 'react'
-
 import uuidv4 from 'uuid/v4'
+
+import HiddenConent from './HiddenContent'
 
 export default class CreatePost extends React.Component {
   constructor (props) {
@@ -59,40 +60,47 @@ export default class CreatePost extends React.Component {
   }
 
   render () {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          Title: 
-          <input type="text"
-                 value={this.state.title}
-                 onChange={this.handleTitle}
-          />
-        </div>
-        <div>
-          Post: 
-          <input type="text"
-                 value={this.state.body}
-                 onChange={this.handleBody}
-          />
-        </div>
-        <div>
-          Category: 
-          <input type="text"
-                 value={this.state.category}
-                 onChange={this.handleCategory}
-          />
-        </div>
-        <div>
-          Author: 
-          <input type="text"
-                 value={this.state.author}
-                 onChange={this.handleAuthor}
-          />
-        </div>
+    const { categories } = this.props 
 
-        <input type="submit" value="Create post" />
-          {!this.props.error ? this.state.message : ''}
-      </form>
+    return (
+      <HiddenConent>
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <label>Title:</label> 
+            <input type="text"
+                  value={this.state.title}
+                  onChange={this.handleTitle}
+            />
+          </div>
+          <div>
+            <label>Post:</label> 
+            <textarea type="text"
+                  value={this.state.body}
+                  onChange={this.handleBody}
+            />
+          </div>
+          <div>
+            <label>Category:</label> 
+            <select value={this.state.category} onChange={this.handleCategory}>
+              <option value="">Select a category</option>
+                {categories.map(
+                  (category, i) =>
+                    <option key={i.toString()} value={category.name}>{category.name}</option>
+                )}
+            </select>
+          </div>
+          <div>
+            <label>Author:</label> 
+            <input type="text"
+                  value={this.state.author}
+                  onChange={this.handleAuthor}
+            />
+          </div>
+
+          <input type="submit" value="Create post" />
+            {!this.props.error ? this.state.message : ''}
+        </form>
+      </HiddenConent>
     )
   }
 }
