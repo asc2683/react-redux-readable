@@ -7,8 +7,8 @@ export default class CreatePost extends React.Component {
     super(props)
 
     this.state = {
-      id: uuidv4(),
-      timestamp: Date.now(),
+      id: '',
+      timestamp: '',
       title: '',
       body: '',
       author: '',
@@ -52,7 +52,7 @@ export default class CreatePost extends React.Component {
     evt.preventDefault()
     const { id, timestamp, title, body, author, category } = this.state
 
-    this.props.createPost({ id, timestamp, title, body, author, category })
+    this.props.createPost({ id: uuidv4(), timestamp: Date.now(), title, body, author, category })
     this.setState({
       message: 'Post created successfully!'
     })
@@ -62,28 +62,29 @@ export default class CreatePost extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
-          Title: 
+          <label>Title:</label> 
           <input type="text"
                  value={this.state.title}
                  onChange={this.handleTitle}
           />
         </div>
         <div>
-          Post: 
-          <input type="text"
+          <label>Post:</label> 
+          <textarea type="text"
                  value={this.state.body}
                  onChange={this.handleBody}
           />
         </div>
         <div>
-          Category: 
-          <input type="text"
-                 value={this.state.category}
-                 onChange={this.handleCategory}
-          />
+          <label>Category:</label> 
+          <select value={this.state.category} onChange={this.handleCategory}>
+            <option value="react">react</option>
+            <option value="redux">redux</option>
+            <option value="udacity">udacity</option>
+          </select>
         </div>
         <div>
-          Author: 
+          <label>Author:</label> 
           <input type="text"
                  value={this.state.author}
                  onChange={this.handleAuthor}
