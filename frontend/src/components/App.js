@@ -7,7 +7,6 @@ import { history } from '../store/middleware'
 import MainPage from './MainPage'
 import PostDetail from './PostDetail'
 import ConnectedLoading from '../containers/ConnectedLoading'
-import ConnectedPostDetail from '../containers/ConnectedPostDetail'
 
 const App = ({ store }) =>
   <Provider store={store}>
@@ -17,7 +16,7 @@ const App = ({ store }) =>
         <ConnectedLoading />
         <hr />
         <Route exact path="/" component={MainPage} />
-        <Route exact path="/post/:id" component={ConnectedPostDetail} />        
+        <Route exact path="/post/:id" component={PostDetail} />        
       </div>
     </ConnectedRouter>
   </Provider>

@@ -3,7 +3,6 @@ import {
 } from '../actionTypes'
 import { thunkCreator } from './utils'
 
-// fetch comments creator
 export const fetchCategories = () => thunkCreator({
   types: [
     FETCH_CATEGORIES_REQUEST, 
@@ -11,7 +10,6 @@ export const fetchCategories = () => thunkCreator({
     FETCH_CATEGORIES_FAILURE
   ],
 
-  // api request
   promise: fetch('http://localhost:3001/categories', { headers: { 'Authorization': 'whatever-you-want' } })
              .then(response => response.json())
 })
