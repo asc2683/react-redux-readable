@@ -1,5 +1,5 @@
 import { 
-  FETCH_COMMENTS_SUCCESS, CREATE_COMMENT_SUCCESS
+  FETCH_COMMENTS_SUCCESS, CREATE_COMMENT_SUCCESS, DELETE_COMMENT
 } from '../actionTypes'
 
 export default function commentssReducer (state = [], action) {
@@ -14,6 +14,11 @@ export default function commentssReducer (state = [], action) {
         ...state,
         result
       ]
+    }
+
+    case DELETE_COMMENT: {
+      const { type, id } = action
+      return state.filter( comment => comment.id !== action.id )
     }
 
     default: {
