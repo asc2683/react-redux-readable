@@ -1,9 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import Post from './Post'
 import Comment from './Comment'
+import DeleteComment from './DeleteComment'
 import { fetchPost, fetchComments } from '../actions'
+
+import ConnectedCreateComment from '../containers/ConnectedCreateComment'
 
 class PostDetail extends React.Component {
 
@@ -14,31 +18,30 @@ class PostDetail extends React.Component {
   }
 
   render () {
-    const { post, comments } = this.props
-
+    const { post, comments, match, deleteComment } = this.props
+    
     return (
       <div>
         <Post {...post} />
         <hr />
         <ul>
-    {comments.map(
-      (comment, i) => 
-        <li key={i.toString()}>
-          <Comment {...comment} />
-        </li>
-    )}
-  </ul>
-
+          {comments.map(
+            (comment, i) => 
+              <li key={i.toString()}>
+                <Comment {...comment} />
+                <DeleteComment
+                onClick={() => deleteComment(comment.id)}
+              />
+              </li>
+          )}
+        </ul>
+        <ConnectedCreateComment 
+          postId = {match.params.id} 
+        />
       </div>
+      
     )
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    post: state.post,
-    comments: state.comments
-  }
-}
-
-export default connect(mapStateToProps, { fetchPost, fetchComments })(PostDetail)
+export default PostDetail

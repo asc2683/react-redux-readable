@@ -1,7 +1,7 @@
 import React from 'react'
 import uuidv4 from 'uuid/v4'
 
-import HiddenConent from './HiddenContent'
+import HiddenContent from './HiddenContent'
 
 export default class CreatePost extends React.Component {
   constructor (props) {
@@ -63,7 +63,9 @@ export default class CreatePost extends React.Component {
     const { categories } = this.props 
 
     return (
-      <HiddenConent>
+      <HiddenContent
+        title="new post"
+      >
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>Title:</label> 
@@ -100,7 +102,7 @@ export default class CreatePost extends React.Component {
           <input type="submit" value="Create post" />
             {!this.props.error ? this.state.message : ''}
         </form>
-      </HiddenConent>
+      </HiddenContent>
     )
   }
 }
