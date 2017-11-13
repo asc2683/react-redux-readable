@@ -5,6 +5,8 @@ import Post from './Post'
 import Comment from './Comment'
 import { fetchPost, fetchComments } from '../actions'
 
+import ConnectedCreateComment from '../containers/ConnectedCreateComment'
+
 class PostDetail extends React.Component {
 
   componentDidMount () {
@@ -14,22 +16,25 @@ class PostDetail extends React.Component {
   }
 
   render () {
-    const { post, comments } = this.props
-
+    const { post, comments, match } = this.props
+    
     return (
       <div>
         <Post {...post} />
         <hr />
         <ul>
-    {comments.map(
-      (comment, i) => 
-        <li key={i.toString()}>
-          <Comment {...comment} />
-        </li>
-    )}
-  </ul>
-
+          {comments.map(
+            (comment, i) => 
+              <li key={i.toString()}>
+                <Comment {...comment} />
+              </li>
+          )}
+        </ul>
+        <ConnectedCreateComment 
+          postId = {this.props.match.params.id} 
+        />
       </div>
+      
     )
   }
 }

@@ -7,14 +7,14 @@ export default class HiddenContent extends React.Component {
   }
 
   render () {
-    const { children } = this.props
+    const { children, title } = this.props
     const { isVisible } = this.state
 
     if (!isVisible) {
       return (
         <span>
           <a href="javascript:void(0)" onClick={() => this.setState({ isVisible: true })}>
-            new post
+            {title}
           </a>
         </span>
       )
