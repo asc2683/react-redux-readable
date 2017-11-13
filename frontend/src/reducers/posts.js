@@ -1,5 +1,5 @@
 import { 
-  FETCH_POSTS_SUCCESS, CREATE_POST_SUCCESS
+  FETCH_POSTS_SUCCESS, CREATE_POST_SUCCESS, DELETE_POST
 } from '../actionTypes'
 
 export default function postsReducer (state = [], action) {
@@ -16,8 +16,16 @@ export default function postsReducer (state = [], action) {
       ]
     }
 
+    case DELETE_POST: {
+      const { type, id } = action
+      return state.filter( post => post.id !== action.id )
+    }
+
     default: {
       return state
     }
   }
 }
+
+
+

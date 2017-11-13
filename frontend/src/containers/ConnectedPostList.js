@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import PostList from '../components/PostList'
+import { deletePost } from '../actions'
 
 const mapStateToProps = (state, props) => {
   const filteredPosts = state.filter 
@@ -12,6 +14,9 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-const ConnectedPostList = connect(mapStateToProps)(PostList)
+const mapDispatchToProps = (dispatch, props) =>
+  bindActionCreators({ deletePost }, dispatch)
+
+const ConnectedPostList = connect(mapStateToProps, mapDispatchToProps)(PostList)
 
 export default ConnectedPostList
