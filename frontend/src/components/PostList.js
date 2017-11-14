@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Post from './Post'
 import DeletePost from './DeletePost'
 
-const PostList = ({ posts, deletePost }) =>
+const PostList = ({ posts, deletePost, edit }) =>
   <div>
     <ul>
       {posts.map(
@@ -16,6 +16,7 @@ const PostList = ({ posts, deletePost }) =>
             <DeletePost 
               onClick={() => deletePost(post.id)}
             />
+            <Link to={`edit/${post.id}`} >edit</Link>
           </li>
       )}
     </ul>

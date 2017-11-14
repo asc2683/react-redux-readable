@@ -1,11 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 import Post from './Post'
 import Comment from './Comment'
 import DeleteComment from './DeleteComment'
-import { fetchPost, fetchComments } from '../actions'
 
 import ConnectedCreateComment from '../containers/ConnectedCreateComment'
 

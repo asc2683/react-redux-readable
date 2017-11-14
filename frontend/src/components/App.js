@@ -7,6 +7,7 @@ import { history } from '../store/middleware'
 import MainPage from './MainPage'
 import PostDetail from './PostDetail'
 import ConnectedPostDetail from '../containers/ConnectedPostDetail'
+import ConnectedEditPost from '../containers/ConnectedEditPost'
 import ConnectedLoading from '../containers/ConnectedLoading'
 
 const App = ({ store }) =>
@@ -17,7 +18,8 @@ const App = ({ store }) =>
         <ConnectedLoading />
         <hr />
         <Route exact path="/" component={MainPage} />
-        <Route exact path="/post/:id" component={ConnectedPostDetail} />        
+        <Route exact path="/post/:id" component={ConnectedPostDetail} />
+        <Route exact path="/edit/:id" component={ConnectedEditPost} />        
       </div>
     </ConnectedRouter>
   </Provider>
