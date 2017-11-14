@@ -18,16 +18,13 @@ export default function postsReducer (state = [], action) {
     }
 
     case EDIT_POST: {
-      const { type, id, ...newPost } = action
-      return state.map((oldPost, index) => 
-        action.id == index
-          ? {
-            ...oldPost,
-            ...newPost,
-            updated: Date.now()
-          }
-          :oldPost
-      )
+      return state.map(post => {
+        if (post.id === action.post.id) {
+          return action.post
+        }
+        
+        return post
+      })
     }
 
     case DELETE_POST: {

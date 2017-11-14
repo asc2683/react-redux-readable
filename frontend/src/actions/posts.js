@@ -78,6 +78,7 @@ export const deletePost = (id) => {
 }
 
 const _updatePost = (post) => (
+
 fetch(`http://localhost:3001/posts/${post.id}`, {
     method: 'PUT',
     headers: {

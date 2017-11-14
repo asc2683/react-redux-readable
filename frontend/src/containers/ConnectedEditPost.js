@@ -5,7 +5,11 @@ import EditPost from '../components/EditPost'
 import { fetchPost, updatePost } from '../actions'
 
 const mapStateToProps = (state, props) => {
+  const categories = Object.values(state.categories).reduce(
+    (acc,cur) => acc.concat(cur), [])
+    
   return {
+    categories,
     post: state.post
   }
 }

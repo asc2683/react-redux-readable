@@ -1,42 +1,41 @@
+/* 
+    fetch post data and populate form / done
+    keek track of the changes made in the form field
+    fire off edit post action that sends the update post request to API / done
+
+    note: props are immutable;
+    ref: http://www.thegreatcodeadventure.com/react-redux-tutorial-part-vi-the-edit-feature/
+*/
+
 import React from 'react'
 
 export default class EditPost extends React.Component {
+
   constructor (props) {
     super(props)
+
     this.state = {
-      id: this.props.id,
-      title: this.props.title,
-      body: this.props.body
+      post: this.props.post
     }
-
-    this.updateTitle = this.updateTitle.bind(this)
-    this.updateBody = this.updateBody.bind(this)
-    this.updatePost = this.updatePost.bind(this)
+        
+    this.updatePostState = this.updatePostState.bind(this)
+    this.saveUpdate = this.saveUpdate.bind(this)
   }
 
-  updateTitle (evt) {
-    this.setState({
-      title: evt.target.value
-    })
+  updatePostState (evt) {
+    const field = evt.target.name
+    const post = this.state.post
+    post[field] = evt.target.value
+
+    return this.setState({ post: post })
   }
 
-  updateBody (evt) {
-    this.setState({
-      body: evt.target.value
-    })
-  }
-
-  updatePost (evt) {
+  saveUpdate (evt) {
     evt.preventDefault()
-    const { id, title, body } = this.state
-
-
-    this.props.updatePost({
-      id, title, body
-    })
+    this.props.updatePost(this.state.post)
 
     this.setState({
-      message: 'Post updated successfully!'
+      message: 'Post created successfully!'
     })
   }
 
@@ -45,28 +44,47 @@ export default class EditPost extends React.Component {
     this.props.fetchPost(postId)
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (this.props.post.id != nextProps.post.id) {
+      this.setState({ post: nextProps.post })
+    }
+  }
+
+
   render () {
     const { post } = this.props
-
+    const { categories } = this.props 
+    
     return (
       <div>
         <h2>Edit</h2>
-        <form onSubmit={this.updatePost}>
+        <form onSubmit={this.saveUpdate}>
           <div>
           <label>Title:</label> 
           <input type="text"
+                name="title"
                 value={post.title}
-                onChange={this.updateTitle}
+                onChange={this.updatePostState}
           />
           </div>
-
           <div>
           <label>Post:</label> 
           <textarea type="text"
+                name="body"
                 value={post.body}
-                onChange={this.updateBody}
+                onChange={this.updatePostState}
           />
           </div>
+          <div>
+          <label>Category:</label> 
+          <select name="category" value={post.category} onChange={this.updatePostState}>
+            <option value="">Select a category</option>
+              {categories.map(
+                (category, i) =>
+                  <option key={i.toString()} value={category.name}>{category.name}</option>
+              )}
+          </select>
+        </div>
           <input type="submit" value="Update post" />
             {!this.props.error ? this.state.message : ''}
         </form>
