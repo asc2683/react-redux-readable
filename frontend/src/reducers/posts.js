@@ -10,7 +10,7 @@ export default function postsReducer (state = [], action) {
     }
 
     case CREATE_POST_SUCCESS: {
-      const { type, result } = action
+      const { result } = action
       return [
         ...state,
         result
@@ -28,7 +28,6 @@ export default function postsReducer (state = [], action) {
     }
 
     case DELETE_POST: {
-      const { type, id } = action
       return state.filter( post => post.id !== action.id )
     }
 

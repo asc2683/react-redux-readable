@@ -9,7 +9,7 @@ export default function commentssReducer (state = [], action) {
     }
 
     case CREATE_COMMENT_SUCCESS: {
-      const { type, result } = action
+      const { result } = action
       return [
         ...state,
         result
@@ -17,7 +17,6 @@ export default function commentssReducer (state = [], action) {
     }
 
     case DELETE_COMMENT: {
-      const { type, id } = action
       return state.filter( comment => comment.id !== action.id )
     }
 

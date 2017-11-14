@@ -13,12 +13,6 @@ const store = configureStore(
 store.dispatch(fetchPosts())
 store.dispatch(fetchCategories())
 
-console.log('initial state:', store.getState())
-
-store.subscribe(() =>
-  console.log('state changed:', store.getState())
-)
-
 ReactDOM.render(
   <BrowserRouter>
     <App store={store} />
