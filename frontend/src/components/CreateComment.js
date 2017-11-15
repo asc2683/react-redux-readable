@@ -75,7 +75,6 @@ export default class CreateComment extends React.Component {
               value={this.state.author}
               onChange={this.handleAuthor} />
           </div>
-
           <input type="submit" value="Create comment" />
             {!this.props.error ? this.state.message : ''}
         </form>
