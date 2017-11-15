@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import PostList from '../components/PostList'
-import { deletePost, createPost } from '../actions'
+import { deletePost, createPost, upVotePost  } from '../actions'
 
 const mapStateToProps = (state, props) => {
   const categories = Object.values(state.categories).reduce(
@@ -25,7 +25,7 @@ const mapStateToProps = (state, props) => {
 }
 
 const mapDispatchToProps = (dispatch, props) =>
-  bindActionCreators({ deletePost, createPost }, dispatch)
+  bindActionCreators({ deletePost, createPost, upVotePost }, dispatch)
 
 const ConnectedPostList = connect(mapStateToProps, mapDispatchToProps)(PostList)
 

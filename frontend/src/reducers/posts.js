@@ -1,6 +1,6 @@
 import { 
   FETCH_POSTS_SUCCESS, CREATE_POST_SUCCESS, DELETE_POST, 
-  EDIT_POST
+  EDIT_POST, UP_VOTE_POST_SUCCESS
 } from '../actionTypes'
 
 export default function postsReducer (state = [], action) {
@@ -25,6 +25,17 @@ export default function postsReducer (state = [], action) {
         
         return post
       })
+    }
+
+    case UP_VOTE_POST_SUCCESS: {
+      const { result } = action
+      return state.map(post => {
+        if (post.id === result.id) {
+          return result
+        }
+             
+        return post
+      })    
     }
 
     case DELETE_POST: {
