@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import PostDetail from '../components/PostDetail'
-import { deleteComment, fetchComments, fetchPost, updateComment } from '../actions'
+import { deleteComment, fetchComments, fetchPost, updateComment, createComment } from '../actions'
 
 const mapStateToProps = (state, props) => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = (state, props) => {
 }
 
 const mapDispatchToProps = (dispatch, props) =>
-  bindActionCreators({ deleteComment, fetchComments, fetchPost, updateComment }, dispatch)
+  bindActionCreators({ deleteComment, fetchComments, fetchPost, updateComment, createComment }, dispatch)
 
 const ConnectedPostDetail = connect(mapStateToProps, mapDispatchToProps)(PostDetail)
 

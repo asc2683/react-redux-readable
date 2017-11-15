@@ -5,9 +5,7 @@ import Comment from './Comment'
 import DeleteComment from './DeleteComment'
 import HiddenContent from'./HiddenContent'
 import EditComment from './EditComment'
-
-
-import ConnectedCreateComment from '../containers/ConnectedCreateComment'
+import CreateComment from './CreateComment'
 
 class PostDetail extends React.Component {
 
@@ -18,7 +16,7 @@ class PostDetail extends React.Component {
   }
 
   render () {
-    const { post, comments, match, deleteComment } = this.props
+    const { post, comments, match, deleteComment, updateComment, createComment } = this.props
     
     return (
       <div>
@@ -34,14 +32,15 @@ class PostDetail extends React.Component {
                 <HiddenContent title="edit">
                   <EditComment
                      comment = {comment}
-                     updateComment = {this.props.updateComment}
+                     updateComment = {updateComment}
                   />
                 </HiddenContent>
               </li>
           )}
         </ul>
-        <ConnectedCreateComment 
+        <CreateComment 
           postId = {match.params.id} 
+          createComment = {createComment}
         />
       </div>
       

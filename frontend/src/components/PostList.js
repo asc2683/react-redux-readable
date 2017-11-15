@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 
 import Post from './Post'
 import DeletePost from './DeletePost'
+import CreatePost from '../components/CreatePost'
 
-const PostList = ({ posts, deletePost, edit }) =>
+const PostList = ({ posts, deletePost, createPost, categories }) =>
   <div>
     <ul>
       {posts.map(
@@ -20,6 +21,10 @@ const PostList = ({ posts, deletePost, edit }) =>
           </li>
       )}
     </ul>
+    <CreatePost 
+      categories={categories}
+      createPost={createPost}
+      />
   </div>
 
 export default PostList
