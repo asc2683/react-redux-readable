@@ -7,5 +7,4 @@ const Comment = ({ timestamp, body, author, voteScore }) =>
     {body}<br />Created by {author} at <Timestamp data={timestamp} />. Votes: {voteScore}
   </span>
 
-
 export default Comment

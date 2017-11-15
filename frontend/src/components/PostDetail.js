@@ -1,11 +1,8 @@
 import React from 'react'
 
 import Post from './Post'
-import Comment from './Comment'
-import DeleteComment from './DeleteComment'
-import HiddenContent from'./HiddenContent'
-import EditComment from './EditComment'
 import CreateComment from './CreateComment'
+import CommentList from './CommentList'
 
 class PostDetail extends React.Component {
 
@@ -21,27 +18,13 @@ class PostDetail extends React.Component {
     return (
       <div>
         <Post {...post} />
-        <ul>
-          {comments.map(
-            (comment, i) => 
-              <li key={i.toString()}>
-                <Comment {...comment} />
-                <DeleteComment
-                  onClick={() => deleteComment(comment.id)}
-                />
-                <HiddenContent title="edit">
-                  <EditComment
-                     comment = {comment}
-                     updateComment = {updateComment}
-                  />
-                </HiddenContent>
-              </li>
-          )}
-        </ul>
+        <CommentList 
+          comments = {comments} 
+          updateComment = {updateComment} 
+          deleteComment = {deleteComment} />
         <CreateComment 
           postId = {match.params.id} 
-          createComment = {createComment}
-        />
+          createComment = {createComment} />
       </div>
       
     )
