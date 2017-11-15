@@ -69,17 +69,17 @@ export default class CreatePost extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>Title:</label> 
-            <input type="text"
-                  value={this.state.title}
-                  onChange={this.handleTitle}
-            />
+            <input 
+              type="text"
+              value={this.state.title}
+              onChange={this.handleTitle} />
           </div>
           <div>
             <label>Post:</label> 
-            <textarea type="text"
-                  value={this.state.body}
-                  onChange={this.handleBody}
-            />
+            <textarea 
+              type="text"
+              value={this.state.body}
+              onChange={this.handleBody} />
           </div>
           <div>
             <label>Category:</label> 
@@ -93,10 +93,10 @@ export default class CreatePost extends React.Component {
           </div>
           <div>
             <label>Author:</label> 
-            <input type="text"
-                  value={this.state.author}
-                  onChange={this.handleAuthor}
-            />
+            <input 
+              type="text"
+              value={this.state.author}
+              onChange={this.handleAuthor} />
           </div>
 
           <input type="submit" value="Create post" />

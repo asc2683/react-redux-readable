@@ -8,7 +8,6 @@ const MainPage = () =>
   <div>
     <div><ConnectedFilterList /></div>
     <div><ConnectedPostList /></div>
-    <hr />
     <div><ConnectedCreatePost /></div>
   </div>
 

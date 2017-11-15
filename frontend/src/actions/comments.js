@@ -1,7 +1,7 @@
 import {
   FETCH_COMMENTS_REQUEST, FETCH_COMMENTS_SUCCESS, FETCH_COMMENTS_FAILURE,
   CREATE_COMMENT_REQUEST, CREATE_COMMENT_SUCCESS, CREATE_COMMENT_FAILURE,
-  DELETE_COMMENT  
+  DELETE_COMMENT, EDIT_COMMENT
 } from '../actionTypes'
 import { thunkCreator } from './utils'
 
@@ -63,3 +63,28 @@ export const deleteComment = (id) => {
     id
   }
 }
+
+const _updateComment = (comment) => (
+  
+  fetch(`http://localhost:3001/comments/${comment.id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': 'whatever-you-want',
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ...comment
+      })
+    })
+    .then(response => response.json())
+  )
+  
+  export const updateComment = (comment) => {
+    _updateComment(comment)
+    return {
+      type: EDIT_COMMENT,
+      comment
+    }
+  }
+  

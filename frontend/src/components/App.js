@@ -19,7 +19,7 @@ const App = ({ store }) =>
         <hr />
         <Route exact path="/" component={MainPage} />
         <Route exact path="/post/:id" component={ConnectedPostDetail} />
-        <Route exact path="/edit/:id" component={ConnectedEditPost} />        
+        <Route exact path="/post/:id/edit" component={ConnectedEditPost} />        
       </div>
     </ConnectedRouter>
   </Provider>
