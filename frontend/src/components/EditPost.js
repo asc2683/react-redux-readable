@@ -35,7 +35,7 @@ export default class EditPost extends React.Component {
     this.props.updatePost(this.state.post)
 
     this.setState({
-      message: 'Post created successfully!'
+      message: 'Post updated successfully!'
     })
   }
 
@@ -61,19 +61,19 @@ export default class EditPost extends React.Component {
         <form onSubmit={this.saveUpdate}>
           <div>
           <label>Title:</label> 
-          <input type="text"
-                name="title"
-                value={post.title}
-                onChange={this.updatePostState}
-          />
+          <input 
+            type="text"
+            name="title"
+            value={post.title}
+            onChange={this.updatePostState} />
           </div>
           <div>
           <label>Post:</label> 
-          <textarea type="text"
-                name="body"
-                value={post.body}
-                onChange={this.updatePostState}
-          />
+          <textarea 
+            type="text"
+            name="body"
+            value={post.body}
+            onChange={this.updatePostState} />
           </div>
           <div>
           <label>Category:</label> 
@@ -90,7 +90,5 @@ export default class EditPost extends React.Component {
         </form>
       </div>
     )
-  }
-
-  
+  }  
 }

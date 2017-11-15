@@ -16,7 +16,7 @@ const PostList = ({ posts, deletePost, edit }) =>
             <DeletePost 
               onClick={() => deletePost(post.id)}
             />
-            <Link to={`edit/${post.id}`} >edit</Link>
+            <Link to={`post/${post.id}/edit`} >edit</Link>
           </li>
       )}
     </ul>
