@@ -8,14 +8,16 @@ import MainPage from './MainPage'
 import PostDetail from './PostDetail'
 import ConnectedPostDetail from '../containers/ConnectedPostDetail'
 import ConnectedEditPost from '../containers/ConnectedEditPost'
-import ConnectedLoading from '../containers/ConnectedLoading'
+// import ConnectedLoading from '../containers/ConnectedLoading'
 
 const App = ({ store }) =>
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div>
         <h1>Readable</h1>
+        {/* 
         <ConnectedLoading />
+        */}
         <hr />
         <Route exact path="/" component={MainPage} />
         <Route exact path="/post/:id" component={ConnectedPostDetail} />
