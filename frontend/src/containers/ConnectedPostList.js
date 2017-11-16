@@ -12,11 +12,6 @@ const mapStateToProps = (state, props) => {
     ? state.posts.filter((post) => post.category === state.filter)
     : state.posts
   
-  // sort the posts on page load by vote score
-  filteredPosts.sort((a, b) => (
-    b.voteScore - a.voteScore
-  ))
-
   return {
     categories,
     posts: filteredPosts,

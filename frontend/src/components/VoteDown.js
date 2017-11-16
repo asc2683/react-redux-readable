@@ -1,8 +1,31 @@
 import React from 'react'
 
-const VoteDown = ({ onClick }) => 
-  <div>
-    <a href="javascript:void(0)" onClick={onClick}>vote down</a>
-  </div>
+export default class VoteDown extends React.Component {
+  
+  constructor (props) {
+    super(props)
 
-export default VoteDown
+    this.state = {
+      post: this.props.post
+    }
+
+    this.handlePostDownVote = this.handlePostDownVote.bind(this)
+  }
+
+  handlePostDownVote () {
+    const post = this.state.post
+    const nextPost = Object.assign({}, post, {
+      voteScore: --post.voteScore 
+    })    
+    this.setState({ post: nextPost })
+    this.props.downVotePost(post)
+  }
+
+  render () {
+    return (
+      <div>
+        <button onClick={this.handlePostDownVote}>vote down</button>
+      </div>
+    )
+  }
+}

@@ -24,7 +24,7 @@ export default class VoteUp extends React.Component {
   render () {
     return (
       <div>
-        <a href="javascript:void(0)" onClick={this.handlePostUpVote}>vote up</a>
+        <button onClick={this.handlePostUpVote}>vote up</button>
       </div>
     )
   }
