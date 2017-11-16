@@ -10,3 +10,4 @@ node_modules/
 .npm
 .eslintcache
 .env
+.vscode
