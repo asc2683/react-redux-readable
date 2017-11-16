@@ -1,11 +1,13 @@
 import React from 'react'
 
 import ConnectedPostList from '../containers/ConnectedPostList'
-import ConnectedFilterList from '../containers/ConnectedFilterList'
+// import ConnectedFilterList from '../containers/ConnectedFilterList'
 
 const MainPage = () => 
   <div>
-    <div><ConnectedFilterList /></div>
+    {/* temp removing filter
+      <div><ConnectedFilterList /></div>
+    */}
     <div><ConnectedPostList /></div>
   </div>
 

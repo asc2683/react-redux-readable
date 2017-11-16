@@ -4,13 +4,13 @@ import { routerReducer } from 'react-router-redux'
 import postsReducers from './posts'
 import categoriesReducers from './categories'
 import loadingReducer from './loading'
-import filterReducer from './filter'
+// import filterReducer from './filter'
 import postReducers from './post'
 import commentsReducer from './comments'
 
 const appReducer = combineReducers({
   posts: postsReducers,
-  filter: filterReducer,
+  // filter: filterReducer,
   categories: categoriesReducers,
   post: postReducers,
   loading: loadingReducer,
