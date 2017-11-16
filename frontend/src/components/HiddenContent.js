@@ -13,18 +13,18 @@ export default class HiddenContent extends React.Component {
     if (!isVisible) {
       return (
         <span>
-          <a href="javascript:void(0)" onClick={() => this.setState({ isVisible: true })}>
+          <button onClick={() => this.setState({ isVisible: true })}>
             {title}
-          </a>
+          </button>
         </span>
       )
     }
 
     return (
       <span>
-        <a href="javascript:void(0)" onClick={() => this.setState({ isVisible: false })}>
+        <button onClick={() => this.setState({ isVisible: false })}>
           cancel
-        </a>
+        </button>
       <div>{children}</div>
     </span>      
     )

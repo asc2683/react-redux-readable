@@ -3,7 +3,8 @@ import {
   FETCH_POST_REQUEST, FETCH_POST_SUCCESS, FETCH_POST_FAILURE,
   CREATE_POST_REQUEST, CREATE_POST_SUCCESS, CREATE_POST_FAILURE, 
   DELETE_POST, EDIT_POST, UP_VOTE_POST_REQUEST, UP_VOTE_POST_SUCCESS, 
-  UP_VOTE_POST_FAILURE
+  UP_VOTE_POST_FAILURE, DOWN_VOTE_POST_REQUEST, DOWN_VOTE_POST_SUCCESS,
+  DOWN_VOTE_POST_FAILURE
 } from '../actionTypes'
 import { thunkCreator } from './utils'
 
@@ -129,3 +130,31 @@ export const upVotePost = (post) => (dispatch) =>
   .catch(err =>
     console.log('Could not up vote a post:', err.message)
   )
+
+  const _downVotePost = (post) => thunkCreator({
+    types: [ 
+      DOWN_VOTE_POST_REQUEST,
+      DOWN_VOTE_POST_SUCCESS,
+      DOWN_VOTE_POST_FAILURE
+    ],
+  
+    promise: fetch(`http://localhost:3001/posts/${post.id}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': 'whatever-you-want',
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'      
+      },
+      body: JSON.stringify({
+        ...post,
+        'option': 'downVote'
+      })
+    })
+    .then(response => response.json())
+  })
+  
+  export const downVotePost = (post) => (dispatch) =>
+    _downVotePost(post)(dispatch)  
+    .catch(err =>
+      console.log('Could not down vote a post:', err.message)
+    )
