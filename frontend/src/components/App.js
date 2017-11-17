@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'react-router-redux'
 
 import { history } from '../store/middleware'
@@ -13,16 +13,11 @@ import ConnectedEditPost from '../containers/ConnectedEditPost'
 const App = ({ store }) =>
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div>
-        <h1>Readable</h1>
-        {/* 
-        <ConnectedLoading />
-        */}
-        <hr />
+        <Switch>
         <Route exact path="/" component={MainPage} />
         <Route exact path="/post/:id" component={ConnectedPostDetail} />
-        <Route exact path="/post/:id/edit" component={ConnectedEditPost} />        
-      </div>
+        <Route exact path="/post/:id/edit" component={ConnectedEditPost} />  
+        </Switch>      
     </ConnectedRouter>
   </Provider>
 
