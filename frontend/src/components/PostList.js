@@ -31,13 +31,9 @@ class PostList extends React.Component {
                   onClick={() => handlePostUpVote()} 
                 />
                 <VoteDown 
-<<<<<<< HEAD
                   post = {post}
                   downVotePost = {downVotePost}
                   onClick={() => handlePostDownVote()} 
-=======
-                  onClick={() => alert("Down Vote Cliked")} 
->>>>>>> 0a1016518676c77876a7215289556338a76bf566
                 />
               </li>
           )}
