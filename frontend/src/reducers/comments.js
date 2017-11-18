@@ -1,6 +1,6 @@
 import {
   FETCH_COMMENTS_SUCCESS, CREATE_COMMENT_SUCCESS, DELETE_COMMENT,
-  EDIT_COMMENT
+  EDIT_COMMENT, DOWN_VOTE_COMMENT_SUCCESS, UP_VOTE_COMMENT_SUCCESS
 } from '../actionTypes'
 
 export default function commentssReducer (state = [], action) {
@@ -29,6 +29,34 @@ export default function commentssReducer (state = [], action) {
 
     case DELETE_COMMENT: {
       return state.filter( comment => comment.id !== action.id )
+    }
+
+    case DOWN_VOTE_COMMENT_SUCCESS: {
+      const { result } = action
+
+      return state.map(comment => {
+        if (comment.id === result.id) {
+          return {
+            ...comment,
+            voteScore: result.voteScore
+          }
+        }
+        return comment
+      })
+    }
+
+    case UP_VOTE_COMMENT_SUCCESS: {
+      const { result } = action
+
+      return state.map(comment => {
+        if (comment.id === result.id) {
+          return {
+            ...comment,
+            voteScore: result.voteScore
+          }
+        }
+        return comment
+      })
     }
 
     default: {

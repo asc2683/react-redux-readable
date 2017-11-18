@@ -32,7 +32,6 @@ export default class EditComment extends React.Component {
 
   render () {
     const { comment } = this.props
-    console.log(this.props)
 
     return (
       <div>

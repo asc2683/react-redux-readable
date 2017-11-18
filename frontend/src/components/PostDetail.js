@@ -2,8 +2,7 @@ import React from 'react'
 
 import CreateComment from './CreateComment'
 import CommentList from './CommentList'
-import VoteDown from './VoteDown'
-import VoteUp from './VoteUp'
+import { VoteDownPost, VoteUpPost } from './Vote'
 import PostMeta from './PostMeta'
 
 class PostDetail extends React.Component {
@@ -19,25 +18,25 @@ class PostDetail extends React.Component {
   }
 
   render () {
-    const { post, postId, comments, deleteComment, updateComment, createComment, handlePostUpVote, upVotePost, handlePostDownVote, downVotePost } = this.props
+    const { post, postId, comments, deleteComment, updateComment, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment } = this.props
 
     return (
       <div>
         <PostMeta {...post} />
-        <VoteUp
+        <VoteUpPost
           post={post}
           upVotePost={upVotePost}
-          onClick={() => handlePostUpVote()}
         />
-        <VoteDown
+        <VoteDownPost
           post={post}
           downVotePost={downVotePost}
-          onClick={() => handlePostDownVote()}
         />
         <CommentList
           comments={comments}
           updateComment={updateComment}
           deleteComment={deleteComment}
+          downVoteComment={downVoteComment}
+          upVoteComment={upVoteComment}
         />
         <CreateComment
           postId={postId}

@@ -8,11 +8,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import DeletePost from './DeletePost'
-import VoteDown from './VoteDown'
-import VoteUp from './VoteUp'
+import { VoteDownPost, VoteUpPost } from './Vote'
 import PostMeta from './PostMeta'
 
-const Post = ({ posts, deletePost, handlePostUpVote, handlePostDownVote, upVotePost, downVotePost }) =>
+const Post = ({ posts, deletePost, upVotePost, downVotePost }) =>
   <div>
     <ul>
       {posts.map(
@@ -27,15 +26,13 @@ const Post = ({ posts, deletePost, handlePostUpVote, handlePostDownVote, upVoteP
             <Link to={`post/${post.id}/edit`} >
               <button>edit</button>
             </Link>
-            <VoteUp
-              post = {post}
+            <VoteUpPost
+              post={post}
               upVotePost = {upVotePost}
-              onClick={() => handlePostUpVote()}
             />
-            <VoteDown
-              post = {post}
+            <VoteDownPost
+              post={post}
               downVotePost = {downVotePost}
-              onClick={() => handlePostDownVote()}
             />
           </li>
       )}
