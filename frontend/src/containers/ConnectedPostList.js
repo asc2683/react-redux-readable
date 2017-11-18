@@ -8,8 +8,8 @@ const mapStateToProps = (state, props) => {
   const categories = Object.values(state.categories).reduce(
     (acc,cur) => acc.concat(cur), [])
 
-  const filteredPosts = state.filter
-    ? state.posts.filter((post) => post.category === state.filter)
+  const filteredPosts = props.match.params.path
+    ? state.posts.filter((post) => post.category === props.match.params.path)
     : state.posts
 
   filteredPosts.sort((a, b) => (

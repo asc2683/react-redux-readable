@@ -4,6 +4,7 @@ import CreateComment from './CreateComment'
 import CommentList from './CommentList'
 import { VoteDownPost, VoteUpPost } from './Vote'
 import PostMeta from './PostMeta'
+import Sort from './Sort'
 
 class PostDetail extends React.Component {
 
@@ -30,6 +31,10 @@ class PostDetail extends React.Component {
         <VoteDownPost
           post={post}
           downVotePost={downVotePost}
+        />
+        <Sort
+          title="sort comments"
+          comments={comments}
         />
         <CommentList
           comments={comments}
