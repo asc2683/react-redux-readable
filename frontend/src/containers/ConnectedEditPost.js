@@ -9,11 +9,11 @@ const mapStateToProps = (state, props) => {
   const postId = props.match.params.id
   const categories = Object.values(state.categories).reduce(
     (acc,cur) => acc.concat(cur), [])
-  
+
   const post = posts.find((post) => {
     return post.id === postId
   })
-    
+
   return {
     post,
     postId,
@@ -21,7 +21,7 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, props) => 
+const mapDispatchToProps = (dispatch, props) =>
   bindActionCreators({ fetchPost, updatePost }, dispatch)
 
 const ConnectedEditPost = connect(mapStateToProps, mapDispatchToProps)(EditPost)

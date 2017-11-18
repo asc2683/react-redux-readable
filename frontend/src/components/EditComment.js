@@ -8,7 +8,7 @@ export default class EditComment extends React.Component {
     this.state = {
       comment: this.props.comment
     }
-        
+
     this.updateCommentState = this.updateCommentState.bind(this)
     this.saveCommentUpdate = this.saveCommentUpdate.bind(this)
   }
@@ -33,22 +33,22 @@ export default class EditComment extends React.Component {
   render () {
     const { comment } = this.props
     console.log(this.props)
-    
+
     return (
       <div>
         <h2>Edit</h2>
         <form onSubmit={this.saveCommentUpdate}>
           <div>
-          <label>Title:</label> 
-          <input 
-            type="text" 
+          <label>Title:</label>
+          <input
+            type="text"
             name="author"
             value={comment.author}
             onChange={this.updateCommentState} />
           </div>
           <div>
-          <label>Comment:</label> 
-          <textarea 
+          <label>Comment:</label>
+          <textarea
             type="text"
             name="body"
             value={comment.body}

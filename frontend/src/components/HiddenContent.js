@@ -26,7 +26,7 @@ export default class HiddenContent extends React.Component {
           cancel
         </button>
       <div>{children}</div>
-    </span>      
+    </span>
     )
   }
 }

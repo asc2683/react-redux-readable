@@ -1,4 +1,4 @@
-/* 
+/*
     fetch post data and populate form / done
     keek track of the changes made in the form field
     fire off edit post action that sends the update post request to API / done
@@ -17,7 +17,7 @@ export default class EditPost extends React.Component {
     this.state = {
       post: this.props.post
     }
-        
+
     this.handlePostUpdate = this.handlePostUpdate.bind(this)
     this.handlePostUpdateSave = this.handlePostUpdateSave.bind(this)
   }
@@ -47,30 +47,30 @@ export default class EditPost extends React.Component {
 
   render () {
     const { post } = this.props
-    const { categories } = this.props 
-    
+    const { categories } = this.props
+
     return (
       <div>
         <h2>Edit</h2>
         <form onSubmit={this.handlePostUpdateSave}>
           <div>
-          <label>Title:</label> 
-          <input 
+          <label>Title:</label>
+          <input
             type="text"
             name="title"
             value={post.title}
             onChange={this.handlePostUpdate} />
           </div>
           <div>
-          <label>Post:</label> 
-          <textarea 
+          <label>Post:</label>
+          <textarea
             type="text"
             name="body"
             value={post.body}
             onChange={this.handlePostUpdate} />
           </div>
           <div>
-          <label>Category:</label> 
+          <label>Category:</label>
           <select name="category" value={post.category} onChange={this.handlePostUpdate}>
             <option value="">Select a category</option>
               {categories.map(
@@ -84,5 +84,5 @@ export default class EditPost extends React.Component {
         </form>
       </div>
     )
-  }  
+  }
 }

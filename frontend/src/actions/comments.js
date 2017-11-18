@@ -42,7 +42,7 @@ export const createComment = (comment) => (dispatch) =>
     .catch(err =>
       console.log('Could not create post:', err.message)
     )
-  
+
 const _deleteComment = (id) => (
   fetch(`http://localhost:3001/comments/${id}`, {
     method: 'DELETE',
@@ -65,7 +65,7 @@ export const deleteComment = (id) => {
 }
 
 const _updateComment = (comment) => (
-  
+
   fetch(`http://localhost:3001/comments/${comment.id}`, {
       method: 'PUT',
       headers: {
@@ -79,7 +79,7 @@ const _updateComment = (comment) => (
     })
     .then(response => response.json())
   )
-  
+
   export const updateComment = (comment) => {
     _updateComment(comment)
     return {
@@ -87,4 +87,3 @@ const _updateComment = (comment) => (
       comment
     }
   }
-  

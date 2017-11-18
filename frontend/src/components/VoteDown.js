@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default class VoteDown extends React.Component {
-  
+
   constructor (props) {
     super(props)
 
@@ -15,8 +15,8 @@ export default class VoteDown extends React.Component {
   handlePostDownVote () {
     const post = this.props.post
     const nextPost = Object.assign({}, post, {
-      voteScore: --post.voteScore 
-    })    
+      voteScore: --post.voteScore
+    })
     this.setState({ post: nextPost })
     this.props.downVotePost(post)
   }

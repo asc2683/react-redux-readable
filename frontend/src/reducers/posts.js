@@ -1,5 +1,5 @@
-import { 
-  FETCH_POSTS_SUCCESS, CREATE_POST_SUCCESS, DELETE_POST, 
+import {
+  FETCH_POSTS_SUCCESS, CREATE_POST_SUCCESS, DELETE_POST,
   EDIT_POST, UP_VOTE_POST_SUCCESS, DOWN_VOTE_POST_SUCCESS
 } from '../actionTypes'
 
@@ -22,7 +22,7 @@ export default function postsReducer (state = [], action) {
         if (post.id === action.post.id) {
           return action.post
         }
-        
+
         return post
       })
     }
@@ -36,22 +36,17 @@ export default function postsReducer (state = [], action) {
 
       return state.map(post => {
         if (post.id === result.id) {
-          return result
+          return {
+            ...post,
+            voteScore: result.voteScore
+          }
         }
-             
         return post
-      })    
+      })
     }
 
     case UP_VOTE_POST_SUCCESS: {
       const { result } = action
-      
-      // return state.map(post => {
-      //   if (post.id === result.id) {
-      //     return Object.assign({}, post, { 
-      //       voteScore: result.voteScore 
-      //     })
-      //   }
 
       return state.map(post => {
         if (post.id === result.id) {

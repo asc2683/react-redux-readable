@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default class VoteUp extends React.Component {
-  
+
   constructor (props) {
     super(props)
 
@@ -16,7 +16,7 @@ export default class VoteUp extends React.Component {
     const post = this.props.post
     const nextPost = Object.assign({}, post, {
       voteScore: ++post.voteScore
-    })    
+    })
     this.setState({ post: nextPost })
     this.props.upVotePost(post)
   }

@@ -8,7 +8,7 @@ const mapStateToProps = (state, props) => {
   const categories = Object.values(state.categories).reduce(
     (acc,cur) => acc.concat(cur), [])
 
-  const filteredPosts = state.filter 
+  const filteredPosts = state.filter
     ? state.posts.filter((post) => post.category === state.filter)
     : state.posts
 
@@ -16,11 +16,11 @@ const mapStateToProps = (state, props) => {
   filteredPosts.sort((a, b) => (
     b.voteScore - a.voteScore
   ))
-  
+
   return {
     categories,
     posts: filteredPosts,
-    error: state.error && state.error.message    
+    error: state.error && state.error.message
   }
 }
 

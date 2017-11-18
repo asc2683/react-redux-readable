@@ -18,11 +18,11 @@ export default class CreatePost extends React.Component {
       deleted: false
     }
 
-    this.handleTitle = this.handleTitle.bind(this)    
+    this.handleTitle = this.handleTitle.bind(this)
     this.handleBody = this.handleBody.bind(this)
-    this.handleAuthor = this.handleAuthor.bind(this)    
-    this.handleCategory = this.handleCategory.bind(this)    
-    this.handleSubmit = this.handleSubmit.bind(this)    
+    this.handleAuthor = this.handleAuthor.bind(this)
+    this.handleCategory = this.handleCategory.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleTitle (evt) {
@@ -60,7 +60,7 @@ export default class CreatePost extends React.Component {
   }
 
   render () {
-    const { categories } = this.props 
+    const { categories } = this.props
 
     return (
       <HiddenContent
@@ -68,21 +68,21 @@ export default class CreatePost extends React.Component {
       >
         <form onSubmit={this.handleSubmit}>
           <div>
-            <label>Title:</label> 
-            <input 
+            <label>Title:</label>
+            <input
               type="text"
               value={this.state.title}
               onChange={this.handleTitle} />
           </div>
           <div>
-            <label>Post:</label> 
-            <textarea 
+            <label>Post:</label>
+            <textarea
               type="text"
               value={this.state.body}
               onChange={this.handleBody} />
           </div>
           <div>
-            <label>Category:</label> 
+            <label>Category:</label>
             <select value={this.state.category} onChange={this.handleCategory}>
               <option value="">Select a category</option>
                 {categories.map(
@@ -92,8 +92,8 @@ export default class CreatePost extends React.Component {
             </select>
           </div>
           <div>
-            <label>Author:</label> 
-            <input 
+            <label>Author:</label>
+            <input
               type="text"
               value={this.state.author}
               onChange={this.handleAuthor} />

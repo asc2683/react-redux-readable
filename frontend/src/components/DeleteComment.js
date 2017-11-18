@@ -1,7 +1,7 @@
 import React from 'react'
 
 const DeleteComment = ({ onClick }) =>
-  <div> 
+  <div>
     <button onClick={onClick}>delete</button>
   </div>
 

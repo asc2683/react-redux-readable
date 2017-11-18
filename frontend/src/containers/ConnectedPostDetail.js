@@ -8,7 +8,7 @@ const mapStateToProps = (state, props) => {
   const comments = state.comments
   const posts = state.posts
   const postId = props.match.params.id
-  
+
   const post =  posts.find((post) => {
     return post.id === postId
   })

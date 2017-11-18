@@ -8,16 +8,16 @@ import EditComment from './EditComment'
 const CommentList = ({ comments, updateComment, deleteComment }) =>
   <ul>
   {comments.map(
-    (comment, i) => 
+    (comment, i) =>
       <li key={i.toString()}>
         <Comment {...comment} />
         <DeleteComment
-          onClick={() => deleteComment(comment.id)} 
+          onClick={() => deleteComment(comment.id)}
         />
         <HiddenContent title="edit">
           <EditComment
             comment = {comment}
-            updateComment = {updateComment} 
+            updateComment = {updateComment}
           />
         </HiddenContent>
       </li>
