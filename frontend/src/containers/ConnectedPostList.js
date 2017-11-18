@@ -2,9 +2,10 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import PostList from '../components/PostList'
-import { deletePost, createPost, upVotePost, downVotePost } from '../actions'
+import { deletePost, createPost, upVotePost, downVotePost, setSort } from '../actions'
 
 const mapStateToProps = (state, props) => {
+  const sortBy = state.sort
   const categories = Object.values(state.categories).reduce(
     (acc,cur) => acc.concat(cur), [])
 
@@ -18,13 +19,14 @@ const mapStateToProps = (state, props) => {
 
   return {
     categories,
+    sortBy,
     posts: filteredPosts,
     error: state.error && state.error.message
   }
 }
 
 const mapDispatchToProps = (dispatch, props) =>
-  bindActionCreators({ deletePost, createPost, upVotePost, downVotePost }, dispatch)
+  bindActionCreators({ deletePost, createPost, upVotePost, downVotePost, setSort }, dispatch)
 
 const ConnectedPostList = connect(mapStateToProps, mapDispatchToProps)(PostList)
 

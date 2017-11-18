@@ -5,6 +5,7 @@ import CommentList from './CommentList'
 import { VoteDownPost, VoteUpPost } from './Vote'
 import PostMeta from './PostMeta'
 import Sort from './Sort'
+import { setSorting } from '../utils/sorting'
 
 class PostDetail extends React.Component {
 
@@ -19,7 +20,9 @@ class PostDetail extends React.Component {
   }
 
   render () {
-    const { post, postId, comments, deleteComment, updateComment, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment } = this.props
+    const { post, postId, comments, deleteComment, updateComment, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort, sortBy } = this.props
+
+    const sortedComments = setSorting(comments, sortBy)
 
     return (
       <div>
@@ -35,9 +38,10 @@ class PostDetail extends React.Component {
         <Sort
           title="sort comments"
           comments={comments}
+          setSort={setSort}
         />
         <CommentList
-          comments={comments}
+          comments={sortedComments}
           updateComment={updateComment}
           deleteComment={deleteComment}
           downVoteComment={downVoteComment}

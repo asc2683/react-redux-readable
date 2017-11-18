@@ -1,36 +1,14 @@
 import React from 'react'
 
-export default class Sort extends React.Component {
+const Sort = ({ title, setSort }) =>
+  <div>
+    <center>
+      <strong>{title}</strong><br />
+      <button onClick={() => setSort('date','desc')}>date descending</button>
+      <button onClick={() => setSort('date','asc')}>date ascending</button>
+      <button onClick={() => setSort('vote','desc')}>vote descending</button>
+      <button onClick={() => setSort('vote','asc')}>vote ascending</button>
+    </center>
+  </div>
 
-  render () {
-    const { title } = this.props
-
-    if (title === 'sort comments') {
-      return (
-        <center>
-          <strong>
-            {title}
-          </strong><br />
-          <button onClick={() => alert('clicked')}>Date Descending</button>
-          <button onClick={() => alert('clicked')}>Date Ascending</button>
-          <button onClick={() => alert('clicked')}>Vote Descending</button>
-          <button onClick={() => alert('clicked')}>Vote Ascending</button>
-        </center>
-      )
-    }
-
-    if (title === 'sort posts') {
-      return (
-        <center>
-          <strong>
-            {title}
-          </strong><br />
-          <button onClick={() => alert('clicked')}>Date Descending</button>
-          <button onClick={() => alert('clicked')}>Date Ascending</button>
-          <button onClick={() => alert('clicked')}>Vote Descending</button>
-          <button onClick={() => alert('clicked')}>Vote Ascending</button>
-        </center>
-      )
-    }
-  }
-}
+  export default Sort
