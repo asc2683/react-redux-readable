@@ -54,7 +54,7 @@ export class VoteUpComment extends React.Component {
     render () {
       return (
         <div>
-          <button onClick={this.handleCommentUpVote}>vote up comment</button>
+          <button onClick={this.handleCommentUpVote}>vote up</button>
         </div>
       )
     }
@@ -115,7 +115,7 @@ export class VoteDownComment extends React.Component {
     render () {
       return (
         <div>
-          <button onClick={this.handleCommentDownVote}>vote comment down</button>
+          <button onClick={this.handleCommentDownVote}>vote down</button>
         </div>
       )
     }
