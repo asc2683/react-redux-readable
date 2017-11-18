@@ -31,6 +31,39 @@ export default function postsReducer (state = [], action) {
       return state.filter( post => post.id !== action.id )
     }
 
+    case DOWN_VOTE_POST_SUCCESS: {
+      const { result } = action
+
+      return state.map(post => {
+        if (post.id === result.id) {
+          return result
+        }
+             
+        return post
+      })    
+    }
+
+    case UP_VOTE_POST_SUCCESS: {
+      const { result } = action
+      
+      // return state.map(post => {
+      //   if (post.id === result.id) {
+      //     return Object.assign({}, post, { 
+      //       voteScore: result.voteScore 
+      //     })
+      //   }
+
+      return state.map(post => {
+        if (post.id === result.id) {
+          return {
+            ...post,
+            voteScore: result.voteScore
+          }
+        }
+        return post
+      })
+    }
+
     default: {
       return state
     }
