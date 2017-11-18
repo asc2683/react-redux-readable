@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default class VoteUp extends React.Component {
-  
+
   constructor (props) {
     super(props)
 
@@ -13,10 +13,10 @@ export default class VoteUp extends React.Component {
   }
 
   handlePostUpVote () {
-    const post = this.state.post
+    const post = this.props.post
     const nextPost = Object.assign({}, post, {
       voteScore: ++post.voteScore
-    })    
+    })
     this.setState({ post: nextPost })
     this.props.upVotePost(post)
   }
@@ -24,7 +24,7 @@ export default class VoteUp extends React.Component {
   render () {
     return (
       <div>
-        <a href="javascript:void(0)" onClick={this.handlePostUpVote}>vote up</a>
+        <button onClick={this.handlePostUpVote}>vote up</button>
       </div>
     )
   }

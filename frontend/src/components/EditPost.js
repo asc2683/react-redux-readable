@@ -1,4 +1,4 @@
-/* 
+/*
     fetch post data and populate form / done
     keek track of the changes made in the form field
     fire off edit post action that sends the update post request to API / done
@@ -17,12 +17,12 @@ export default class EditPost extends React.Component {
     this.state = {
       post: this.props.post
     }
-        
-    this.updatePostState = this.updatePostState.bind(this)
-    this.saveUpdate = this.saveUpdate.bind(this)
+
+    this.handlePostUpdate = this.handlePostUpdate.bind(this)
+    this.handlePostUpdateSave = this.handlePostUpdateSave.bind(this)
   }
 
-  updatePostState (evt) {
+  handlePostUpdate (evt) {
     const field = evt.target.name
     const post = this.state.post
     post[field] = evt.target.value
@@ -30,7 +30,7 @@ export default class EditPost extends React.Component {
     return this.setState({ post: post })
   }
 
-  saveUpdate (evt) {
+  handlePostUpdateSave (evt) {
     evt.preventDefault()
     this.props.updatePost(this.state.post)
 
@@ -39,45 +39,39 @@ export default class EditPost extends React.Component {
     })
   }
 
-  componentDidMount () {
-    const postId = this.props.match.params.id
-    this.props.fetchPost(postId)
-  }
-
   componentWillReceiveProps (nextProps) {
     if (this.props.post.id !== nextProps.post.id) {
       this.setState({ post: nextProps.post })
     }
   }
 
-
   render () {
     const { post } = this.props
-    const { categories } = this.props 
-    
+    const { categories } = this.props
+
     return (
       <div>
         <h2>Edit</h2>
-        <form onSubmit={this.saveUpdate}>
+        <form onSubmit={this.handlePostUpdateSave}>
           <div>
-          <label>Title:</label> 
-          <input 
+          <label>Title:</label>
+          <input
             type="text"
             name="title"
             value={post.title}
-            onChange={this.updatePostState} />
+            onChange={this.handlePostUpdate} />
           </div>
           <div>
-          <label>Post:</label> 
-          <textarea 
+          <label>Post:</label>
+          <textarea
             type="text"
             name="body"
             value={post.body}
-            onChange={this.updatePostState} />
+            onChange={this.handlePostUpdate} />
           </div>
           <div>
-          <label>Category:</label> 
-          <select name="category" value={post.category} onChange={this.updatePostState}>
+          <label>Category:</label>
+          <select name="category" value={post.category} onChange={this.handlePostUpdate}>
             <option value="">Select a category</option>
               {categories.map(
                 (category, i) =>
@@ -90,5 +84,5 @@ export default class EditPost extends React.Component {
         </form>
       </div>
     )
-  }  
+  }
 }

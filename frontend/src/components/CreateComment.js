@@ -19,8 +19,8 @@ export default class CreateComment extends React.Component {
     }
 
     this.handleBody = this.handleBody.bind(this)
-    this.handleAuthor = this.handleAuthor.bind(this)    
-    this.handleSubmit = this.handleSubmit.bind(this)    
+    this.handleAuthor = this.handleAuthor.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleBody (evt) {
@@ -40,11 +40,11 @@ export default class CreateComment extends React.Component {
     const { id, parentId, timestamp, body, author } = this.state
     const { postId } = this.props
 
-    this.props.createComment({ 
-      id: uuidv4(), 
-      parentId: postId,  
-      timestamp: Date.now(), 
-      body, 
+    this.props.createComment({
+      id: uuidv4(),
+      parentId: postId,
+      timestamp: Date.now(),
+      body,
       author
      })
 
@@ -54,7 +54,7 @@ export default class CreateComment extends React.Component {
   }
 
   render () {
-    const { categories } = this.props 
+    const { categories } = this.props
 
     return (
       <HiddenContent
@@ -62,15 +62,15 @@ export default class CreateComment extends React.Component {
       >
         <form onSubmit={this.handleSubmit}>
           <div>
-            <label>Comment:</label> 
-            <textarea 
+            <label>Comment:</label>
+            <textarea
               type="text"
               value={this.state.body}
               onChange={this.handleBody} />
           </div>
           <div>
-            <label>Author:</label> 
-            <input 
+            <label>Author:</label>
+            <input
               type="text"
               value={this.state.author}
               onChange={this.handleAuthor} />

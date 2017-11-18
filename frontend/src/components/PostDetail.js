@@ -1,32 +1,50 @@
 import React from 'react'
 
-import Post from './Post'
 import CreateComment from './CreateComment'
 import CommentList from './CommentList'
+import VoteDown from './VoteDown'
+import VoteUp from './VoteUp'
+import PostMeta from './PostMeta'
 
 class PostDetail extends React.Component {
 
   componentDidMount () {
-    const postId = this.props.match.params.id
-    this.props.fetchPost(postId)
-    this.props.fetchComments(postId)
+    this.props.fetchComments(this.props.postId)
+  }
+
+  componentDidUpdate (nextProps) {
+    if (this.props.comments.length !== nextProps.comments.length) {
+      this.props.fetchPosts(this.props.postId)
+    }
   }
 
   render () {
-    const { post, comments, match, deleteComment, updateComment, createComment } = this.props
-    
+    const { post, postId, comments, deleteComment, updateComment, createComment, handlePostUpVote, upVotePost, handlePostDownVote, downVotePost } = this.props
+
     return (
       <div>
-        <Post {...post} />
-        <CommentList 
-          comments = {comments} 
-          updateComment = {updateComment} 
-          deleteComment = {deleteComment} />
-        <CreateComment 
-          postId = {match.params.id} 
-          createComment = {createComment} />
+        <PostMeta {...post} />
+        <VoteUp
+          post={post}
+          upVotePost={upVotePost}
+          onClick={() => handlePostUpVote()}
+        />
+        <VoteDown
+          post={post}
+          downVotePost={downVotePost}
+          onClick={() => handlePostDownVote()}
+        />
+        <CommentList
+          comments={comments}
+          updateComment={updateComment}
+          deleteComment={deleteComment}
+        />
+        <CreateComment
+          postId={postId}
+          createComment={createComment}
+        />
       </div>
-      
+
     )
   }
 }

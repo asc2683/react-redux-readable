@@ -2,16 +2,16 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import PostList from '../components/PostList'
-import { deletePost, createPost, upVotePost  } from '../actions'
+import { deletePost, createPost, upVotePost, downVotePost } from '../actions'
 
 const mapStateToProps = (state, props) => {
   const categories = Object.values(state.categories).reduce(
     (acc,cur) => acc.concat(cur), [])
 
-  const filteredPosts = state.filter 
+  const filteredPosts = state.filter
     ? state.posts.filter((post) => post.category === state.filter)
     : state.posts
-  
+
   // sort the posts on page load by vote score
   filteredPosts.sort((a, b) => (
     b.voteScore - a.voteScore
@@ -20,12 +20,12 @@ const mapStateToProps = (state, props) => {
   return {
     categories,
     posts: filteredPosts,
-    error: state.error && state.error.message    
+    error: state.error && state.error.message
   }
 }
 
 const mapDispatchToProps = (dispatch, props) =>
-  bindActionCreators({ deletePost, createPost, upVotePost }, dispatch)
+  bindActionCreators({ deletePost, createPost, upVotePost, downVotePost }, dispatch)
 
 const ConnectedPostList = connect(mapStateToProps, mapDispatchToProps)(PostList)
 
