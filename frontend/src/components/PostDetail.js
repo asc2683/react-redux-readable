@@ -6,6 +6,7 @@ import { VoteDownPost, VoteUpPost } from './Vote'
 import PostMeta from './PostMeta'
 import Sort from './Sort'
 import { setSorting } from '../utils/sorting'
+import DeletePost from './DeletePost'
 
 class PostDetail extends React.Component {
 
@@ -20,7 +21,7 @@ class PostDetail extends React.Component {
   }
 
   render () {
-    const { post, postId, comments, deleteComment, updateComment, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort, sortBy } = this.props
+    const { post, postId, comments, deleteComment, deletePost, updateComment, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort, sortBy } = this.props
     const sortedComments = setSorting(comments, sortBy)
 
     if (!post) {
@@ -34,6 +35,9 @@ class PostDetail extends React.Component {
     return (
       <div>
         <PostMeta {...post} />
+        <DeletePost
+          onClick={() => deletePost(post.id)}
+        />
         <VoteUpPost
           post={post}
           upVotePost={upVotePost}
