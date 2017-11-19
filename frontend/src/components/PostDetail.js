@@ -23,6 +23,14 @@ class PostDetail extends React.Component {
     const { post, postId, comments, deleteComment, updateComment, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort, sortBy } = this.props
     const sortedComments = setSorting(comments, sortBy)
 
+    if (!post) {
+      return (
+        <div>
+          <p>Page not found!</p>
+        </div>
+      )
+    }
+
     return (
       <div>
         <PostMeta {...post} />
