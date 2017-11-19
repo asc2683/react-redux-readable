@@ -74,7 +74,6 @@ export class VoteDownPost extends React.Component {
 
   handlePostDownVote () {
     const post = this.props.post
-    debugger
     const nextPost = Object.assign({}, post, {
       voteScore: --post.voteScore
     })

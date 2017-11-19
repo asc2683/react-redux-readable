@@ -2,30 +2,35 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import PostDetail from '../components/PostDetail'
-import { deleteComment, fetchComments, updateComment, fetchPosts, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment } from '../actions'
+import { deleteComment, fetchComments, updateComment, fetchPosts, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort } from '../actions'
 
 const mapStateToProps = (state, props) => {
-  const comments = state.comments
+  const sortedComments = state.comments
   const posts = state.posts
   const postId = props.match.params.id
+  const sortBy = state.sort
 
   const post =  posts.find((post) => {
     return post.id === postId
   })
 
-  comments.sort((a, b) => (
+  sortedComments.sort((a, b) => (
     b.voteScore - a.voteScore
   ))
+
+  console.log(sortedComments)
 
   return {
     post,
     postId,
-    comments
+    sortBy,
+    comments: sortedComments,
+    error: state.error && state.error.message
   }
 }
 
 const mapDispatchToProps = (dispatch, props) =>
-  bindActionCreators({ deleteComment, fetchComments, updateComment, fetchPosts, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment }, dispatch)
+  bindActionCreators({ deleteComment, fetchComments, updateComment, fetchPosts, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort }, dispatch)
 
 const ConnectedPostDetail = connect(mapStateToProps, mapDispatchToProps)(PostDetail)
 

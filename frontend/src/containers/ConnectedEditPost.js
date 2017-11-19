@@ -17,7 +17,8 @@ const mapStateToProps = (state, props) => {
   return {
     post,
     postId,
-    categories
+    categories,
+    error: state.error && state.error.message
   }
 }
 
