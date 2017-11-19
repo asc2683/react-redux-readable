@@ -11,7 +11,7 @@ const Post = ({ posts, deletePost, upVotePost, downVotePost }) =>
       {posts.map(
         (post, i) =>
           <li key={i.toString()}>
-            <Link to={`post/${post.id}`}>
+            <Link to={`${post.category}/${post.id}`}>
               <PostMeta {...post} />
             </Link>
             <DeletePost

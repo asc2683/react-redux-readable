@@ -14,7 +14,7 @@ const App = ({ store }) =>
       <Switch>
         <Route exact path="/" component={ConnectedPostList} />
         <Route exact path="/:path" component={ConnectedPostList} />
-        <Route exact path="/post/:id" component={ConnectedPostDetail} />
+        <Route exact path="/:category/:id" component={ConnectedPostDetail} />
         <Route exact path="/post/:id/edit" component={ConnectedEditPost} />
       </Switch>
     </ConnectedRouter>
