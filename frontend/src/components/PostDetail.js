@@ -21,7 +21,6 @@ class PostDetail extends React.Component {
 
   render () {
     const { post, postId, comments, deleteComment, updateComment, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort, sortBy } = this.props
-
     const sortedComments = setSorting(comments, sortBy)
 
     return (

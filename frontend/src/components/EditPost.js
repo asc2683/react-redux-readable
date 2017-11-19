@@ -1,12 +1,3 @@
-/*
-    fetch post data and populate form / done
-    keek track of the changes made in the form field
-    fire off edit post action that sends the update post request to API / done
-
-    note: props are immutable;
-    ref: http://www.thegreatcodeadventure.com/react-redux-tutorial-part-vi-the-edit-feature/
-*/
-
 import React from 'react'
 
 export default class EditPost extends React.Component {

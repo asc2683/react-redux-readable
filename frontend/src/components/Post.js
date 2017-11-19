@@ -1,9 +1,3 @@
-/*
-  Presentational components can be stateless functional components.
-  This reinforces their single responsibility of rendering markup.
-  https://www.fullstackreact.com/p/using-presentational-and-container-components-with-redux/
-*/
-
 import React from 'react'
 import { Link } from 'react-router-dom'
 

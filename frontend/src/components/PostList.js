@@ -6,15 +6,11 @@ import CreatePost from '../components/CreatePost'
 import Sort from './Sort'
 import { setSorting } from '../utils/sorting'
 
-class PostList extends React.Component {
+const PostList = ({ posts, categories, createPost, deletePost, upVotePost, downVotePost, sortBy, setSort }) => {
+  const sortedPosts = setSorting(posts, sortBy)
 
-  render () {
-    const { posts, categories, createPost, deletePost, upVotePost, downVotePost, sortBy, setSort } = this.props
-
-    const sortedPosts = setSorting(posts, sortBy)
-
-    return  (
-      <div>
+  return (
+    <div>
       <FilterList
         categories={categories}
       />
@@ -34,8 +30,7 @@ class PostList extends React.Component {
         createPost={createPost}
       />
     </div>
-    )
-  }
+  )
 }
 
 export default PostList

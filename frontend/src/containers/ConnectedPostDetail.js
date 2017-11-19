@@ -18,8 +18,6 @@ const mapStateToProps = (state, props) => {
     b.voteScore - a.voteScore
   ))
 
-  console.log(sortedComments)
-
   return {
     post,
     postId,
