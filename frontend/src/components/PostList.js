@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Post from './Post'
-import FilterList from './FilterList'
 import CreatePost from '../components/CreatePost'
 import Sort from './Sort'
 import { setSorting } from '../utils/sorting'
@@ -11,9 +10,6 @@ const PostList = ({ posts, categories, createPost, deletePost, upVotePost, downV
 
   return (
     <div>
-      <FilterList
-        categories={categories}
-      />
       <Sort
         title="sort posts"
         posts={posts}

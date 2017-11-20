@@ -49,7 +49,3 @@ export const EDIT_COMMENT = 'EDIT_COMMENT'
 
 // SORT
 export const SET_SORT = 'SET_SORT'
-
-// FILTER
-// export const SET_FILTER = 'SET_FILTER'
-// export const CLEAR_FILTER = 'CLEAR_FILTER'
