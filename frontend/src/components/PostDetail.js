@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import CreateComment from './CreateComment'
 import CommentList from './CommentList'
@@ -38,6 +39,9 @@ class PostDetail extends React.Component {
         <DeletePost
           onClick={() => deletePost(post.id)}
         />
+        <Link to={`/post/${post.id}/edit`} >
+          <button>edit</button>
+        </Link>
         <VoteUpPost
           post={post}
           upVotePost={upVotePost}
