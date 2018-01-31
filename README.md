@@ -16,6 +16,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ```
 cd frontend
-npm istall
+npm install
 npm start
 ```
