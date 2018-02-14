@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class EditComment extends React.Component {
+class EditComment extends React.Component {
 
   constructor (props) {
     super(props)
@@ -60,3 +60,5 @@ export default class EditComment extends React.Component {
     )
   }
 }
+
+export default EditComment

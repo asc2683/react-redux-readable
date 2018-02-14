@@ -1,6 +1,5 @@
 import React from 'react'
-
-export default class EditPost extends React.Component {
+class EditPost extends React.Component {
 
   constructor (props) {
     super(props)
@@ -77,3 +76,5 @@ export default class EditPost extends React.Component {
     )
   }
 }
+
+export default EditPost

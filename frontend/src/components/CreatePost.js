@@ -3,7 +3,7 @@ import uuidv4 from 'uuid/v4'
 
 import HiddenContent from './HiddenContent'
 
-export default class CreatePost extends React.Component {
+class CreatePost extends React.Component {
   constructor (props) {
     super(props)
 
@@ -51,7 +51,7 @@ export default class CreatePost extends React.Component {
 
   handleSubmit (evt) {
     evt.preventDefault()
-    const { id, timestamp, title, body, author, category } = this.state
+    const { title, body, author, category } = this.state
 
     this.props.createPost({ id: uuidv4(), timestamp: Date.now(), title, body, author, category })
     this.setState({
@@ -106,3 +106,5 @@ export default class CreatePost extends React.Component {
     )
   }
 }
+
+export default CreatePost

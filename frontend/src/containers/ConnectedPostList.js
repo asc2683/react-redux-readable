@@ -1,8 +1,7 @@
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 import PostList from '../components/PostList'
-import { deletePost, createPost, upVotePost, downVotePost, setSort } from '../actions'
+import * as actions from '../actions/posts'
 
 const mapStateToProps = (state, props) => {
   const sortBy = state.sort
@@ -25,9 +24,4 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, props) =>
-  bindActionCreators({ deletePost, createPost, upVotePost, downVotePost, setSort }, dispatch)
-
-const ConnectedPostList = connect(mapStateToProps, mapDispatchToProps)(PostList)
-
-export default ConnectedPostList
+export default connect(mapStateToProps, actions)(PostList);
