@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import PostDetail from '../components/PostDetail'
-import { deleteComment, fetchComments, updateComment, fetchPosts, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort } from '../actions'
+import { deleteComment, deletePost, fetchComments, updateComment, fetchPosts, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort } from '../actions'
 
 const mapStateToProps = (state, props) => {
   const sortedComments = state.comments
@@ -18,8 +18,6 @@ const mapStateToProps = (state, props) => {
     b.voteScore - a.voteScore
   ))
 
-  console.log(sortedComments)
-
   return {
     post,
     postId,
@@ -30,7 +28,7 @@ const mapStateToProps = (state, props) => {
 }
 
 const mapDispatchToProps = (dispatch, props) =>
-  bindActionCreators({ deleteComment, fetchComments, updateComment, fetchPosts, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort }, dispatch)
+  bindActionCreators({ deleteComment, deletePost, fetchComments, updateComment, fetchPosts, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort }, dispatch)
 
 const ConnectedPostDetail = connect(mapStateToProps, mapDispatchToProps)(PostDetail)
 

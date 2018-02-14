@@ -1,9 +1,3 @@
-/*
-  Presentational components can be stateless functional components.
-  This reinforces their single responsibility of rendering markup.
-  https://www.fullstackreact.com/p/using-presentational-and-container-components-with-redux/
-*/
-
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -17,7 +11,7 @@ const Post = ({ posts, deletePost, upVotePost, downVotePost }) =>
       {posts.map(
         (post, i) =>
           <li key={i.toString()}>
-            <Link to={`post/${post.id}`}>
+            <Link to={`${post.category}/${post.id}`}>
               <PostMeta {...post} />
             </Link>
             <DeletePost
