@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class HiddenContent extends React.Component {
+class HiddenContent extends React.Component {
   constructor (props) {
     super(props)
     this.state = { isVisible: false }
@@ -30,3 +30,5 @@ export default class HiddenContent extends React.Component {
     )
   }
 }
+
+export default HiddenContent

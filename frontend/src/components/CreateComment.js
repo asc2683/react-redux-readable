@@ -3,7 +3,7 @@ import uuidv4 from 'uuid/v4'
 
 import HiddenContent from './HiddenContent'
 
-export default class CreateComment extends React.Component {
+class CreateComment extends React.Component {
   constructor (props) {
     super(props)
 
@@ -37,7 +37,7 @@ export default class CreateComment extends React.Component {
 
   handleSubmit (evt) {
     evt.preventDefault()
-    const { id, parentId, timestamp, body, author } = this.state
+    const { body, author } = this.state
     const { postId } = this.props
 
     this.props.createComment({
@@ -54,8 +54,6 @@ export default class CreateComment extends React.Component {
   }
 
   render () {
-    const { categories } = this.props
-
     return (
       <HiddenContent
         title='new comment'
@@ -82,3 +80,5 @@ export default class CreateComment extends React.Component {
     )
   }
 }
+
+export default CreateComment
