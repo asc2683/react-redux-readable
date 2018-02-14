@@ -1,9 +1,9 @@
 import React from 'react'
 import uuidv4 from 'uuid/v4'
 
-import HiddenContent from './HiddenContent'
+import HiddenContent from '../HiddenContent'
 
-class CreatePost extends React.Component {
+class PostForm extends React.Component {
   constructor (props) {
     super(props)
 
@@ -107,4 +107,4 @@ class CreatePost extends React.Component {
   }
 }
 
-export default CreatePost
+export default PostForm

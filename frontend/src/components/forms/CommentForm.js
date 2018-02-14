@@ -1,9 +1,9 @@
 import React from 'react'
 import uuidv4 from 'uuid/v4'
 
-import HiddenContent from './HiddenContent'
+import HiddenContent from '../HiddenContent'
 
-class CreateComment extends React.Component {
+class CommentForm extends React.Component {
   constructor (props) {
     super(props)
 
@@ -81,4 +81,4 @@ class CreateComment extends React.Component {
   }
 }
 
-export default CreateComment
+export default CommentForm

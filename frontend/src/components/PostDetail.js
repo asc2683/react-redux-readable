@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import CreateComment from './CreateComment'
+import CommentForm from './forms/CommentForm'
 import CommentList from './CommentList'
 import { VoteDownPost, VoteUpPost } from './Vote'
 import PostMeta from './PostMeta'
@@ -62,7 +62,7 @@ class PostDetail extends React.Component {
           downVoteComment={downVoteComment}
           upVoteComment={upVoteComment}
         />
-        <CreateComment
+        <CommentForm
           postId={postId}
           createComment={createComment}
         />

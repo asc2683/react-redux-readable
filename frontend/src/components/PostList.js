@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Post from './Post'
-import CreatePost from '../components/CreatePost'
+import PostForm from '../components/forms/PostForm'
 import Sort from './Sort'
 import { setSorting } from '../utils/sorting'
 
@@ -21,7 +21,7 @@ const PostList = ({ posts, categories, createPost, deletePost, upVotePost, downV
         upVotePost={upVotePost}
         downVotePost={downVotePost}
       />
-      <CreatePost
+      <PostForm
         categories={categories}
         createPost={createPost}
       />
