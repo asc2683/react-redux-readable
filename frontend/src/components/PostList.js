@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Post from './Post'
-import PostForm from '../components/forms/PostForm'
+import PostForm from '../components/Forms/PostForm'
 import Sort from './Sort'
 import { setSorting } from '../utils/sorting'
 

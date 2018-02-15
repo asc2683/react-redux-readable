@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import CommentForm from './forms/CommentForm'
+import CommentForm from './Forms/CommentForm'
 import CommentList from './CommentList'
 import { VoteDownPost, VoteUpPost } from './Vote'
 import PostMeta from './PostMeta'
