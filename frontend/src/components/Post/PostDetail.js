@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import CommentForm from './forms/CommentForm'
-import CommentList from './CommentList'
-import { VoteDownPost, VoteUpPost } from './Vote'
+import CommentForm from '../Forms/CommentForm'
+import CommentList from '../Comment/CommentList'
+import { VoteDownPost, VoteUpPost } from '../Vote'
 import PostMeta from './PostMeta'
-import Sort from './Sort'
-import { setSorting } from '../utils/sorting'
+import Sort from '../Sort'
+import { setSorting } from '../../utils/sorting'
 import DeletePost from './DeletePost'
 
 class PostDetail extends React.Component {

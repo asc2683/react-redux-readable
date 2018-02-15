@@ -1,9 +1,9 @@
 import React from 'react'
 
 import Post from './Post'
-import PostForm from '../components/forms/PostForm'
-import Sort from './Sort'
-import { setSorting } from '../utils/sorting'
+import PostForm from '../Forms/PostForm'
+import Sort from '../Sort'
+import { setSorting } from '../../utils/sorting'
 
 const PostList = ({ posts, categories, createPost, deletePost, upVotePost, downVotePost, sortBy, setSort }) => {
   const sortedPosts = setSorting(posts, sortBy)

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import EditPost from '../components/EditPost'
+import EditPost from '../components/Post/EditPost'
 import { fetchPost, updatePost } from '../actions'
 
 const mapStateToProps = (state, props) => {

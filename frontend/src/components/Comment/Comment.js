@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Timestamp from './Timestamp'
+import Timestamp from '../Timestamp'
 
 const Comment = ({ timestamp, body, author, voteScore }) =>
   <span>

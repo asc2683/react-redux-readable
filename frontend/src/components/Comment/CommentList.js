@@ -2,9 +2,9 @@ import React from 'react'
 
 import Comment from './Comment'
 import DeleteComment from './DeleteComment'
-import HiddenContent from'./HiddenContent'
+import HiddenContent from'../HiddenContent'
 import EditComment from './EditComment'
-import { VoteUpComment, VoteDownComment } from './Vote'
+import { VoteUpComment, VoteDownComment } from '../Vote'
 
 const CommentList = ({ comments, updateComment, deleteComment, upVoteComment, downVoteComment }) =>
   <ul>

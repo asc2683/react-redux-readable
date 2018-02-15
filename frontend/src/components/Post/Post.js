@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import DeletePost from './DeletePost'
-import { VoteDownPost, VoteUpPost } from './Vote'
+import { VoteDownPost, VoteUpPost } from '../Vote'
 import PostMeta from './PostMeta'
 
 const Post = ({ posts, deletePost, upVotePost, downVotePost }) =>

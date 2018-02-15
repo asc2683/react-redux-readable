@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import PostDetail from '../components/PostDetail'
+import PostDetail from '../components/Post/PostDetail'
 import { deleteComment, deletePost, fetchComments, updateComment, fetchPosts, createComment, upVotePost, downVotePost, downVoteComment, upVoteComment, setSort } from '../actions'
 
 const mapStateToProps = (state, props) => {
