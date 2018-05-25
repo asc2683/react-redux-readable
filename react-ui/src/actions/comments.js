@@ -14,7 +14,7 @@ export const fetchComments = (id) => thunkCreator({
     FETCH_COMMENTS_FAILURE
   ],
 
-  promise: fetch(`http://localhost:3001/posts/${id}/comments`, { headers: { 'Authorization': 'whatever-you-want' } })
+  promise: fetch(`http://localhost:5001/posts/${id}/comments`, { headers: { 'Authorization': 'whatever-you-want' } })
              .then(response => response.json())
 })
 
@@ -25,7 +25,7 @@ const _createComment = (comment) => thunkCreator({
     CREATE_COMMENT_FAILURE
   ],
 
-  promise: fetch('http://localhost:3001/comments', {
+  promise: fetch('http://localhost:5001/comments', {
     method: 'POST',
     headers: {
       'Authorization': 'whatever-you-want',
@@ -46,7 +46,7 @@ export const createComment = (comment) => (dispatch) =>
     )
 
 const _deleteComment = (id) => (
-  fetch(`http://localhost:3001/comments/${id}`, {
+  fetch(`http://localhost:5001/comments/${id}`, {
     method: 'DELETE',
     headers: {
       'Authorization': 'whatever-you-want',
@@ -68,7 +68,7 @@ export const deleteComment = (id) => {
 
 const _updateComment = (comment) => (
 
-  fetch(`http://localhost:3001/comments/${comment.id}`, {
+  fetch(`http://localhost:5001/comments/${comment.id}`, {
       method: 'PUT',
       headers: {
         'Authorization': 'whatever-you-want',
@@ -97,7 +97,7 @@ const _updateComment = (comment) => (
       UP_VOTE_COMMENT_FAILURE
     ],
 
-    promise: fetch(`http://localhost:3001/comments/${comment.id}`, {
+    promise: fetch(`http://localhost:5001/comments/${comment.id}`, {
       method: 'POST',
       headers: {
         'Authorization': 'whatever-you-want',
@@ -125,7 +125,7 @@ const _updateComment = (comment) => (
         DOWN_VOTE_COMMENT_FAILURE
       ],
 
-      promise: fetch(`http://localhost:3001/comments/${comment.id}`, {
+      promise: fetch(`http://localhost:5001/comments/${comment.id}`, {
         method: 'POST',
         headers: {
           'Authorization': 'whatever-you-want',
