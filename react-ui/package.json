@@ -1,18 +1,7 @@
 {
-  "name": "react-redux-readable-frontend",
-  "version": "1.0.0",
-  "description": "Readable is a content and comment web app.",
+  "name": "readable",
+  "version": "0.1.0",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/asc2683/react-redux-blog.git"
-  },
-  "author": "Ansoo",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/asc2683/react-redux-readable/issues"
-  },
-  "homepage": "https://github.com/asc2683/react-redux-readdable#readme",
   "dependencies": {
     "history": "^4.7.2",
     "react": "^15.4.2",
@@ -24,8 +13,6 @@
     "redux-thunk": "^2.2.0",
     "uuid": "^3.0.1",
     "react-scripts": "1.0.17"
-  },
-  "devDependencies": {
   },
   "scripts": {
     "start": "react-scripts start",
