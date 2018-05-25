@@ -15,7 +15,7 @@ export const fetchPosts = () => thunkCreator({
     FETCH_POSTS_FAILURE
   ],
 
-  promise: fetch('https://localhost:5001/posts', { headers: { 'Authorization': 'whatever-you-want' } })
+  promise: fetch('https://readable4.herokuapp.com/posts', { headers: { 'Authorization': 'whatever-you-want' } })
              .then(response => response.json())
 })
 
@@ -26,7 +26,7 @@ export const fetchPost = (id) => thunkCreator({
     FETCH_POST_FAILURE
   ],
 
-  promise: fetch(`https://localhost:5001/posts/${id}`, { headers: { 'Authorization': 'whatever-you-want' } })
+  promise: fetch(`https://readable4.herokuapp.com/posts/${id}`, { headers: { 'Authorization': 'whatever-you-want' } })
              .then(response => response.json())
 })
 
@@ -37,7 +37,7 @@ const _createPost = (post) => thunkCreator({
     CREATE_POST_FAILURE
   ],
 
-  promise: fetch('https://localhost:5001/posts', {
+  promise: fetch('https://readable4.herokuapp.com/posts', {
     method: 'POST',
     headers: {
       'Authorization': 'whatever-you-want',
@@ -58,7 +58,7 @@ export const createPost = (post) => (dispatch) =>
     )
 
 const _deletePost = (id) => (
-  fetch(`https://localhost:5001/posts/${id}`, {
+  fetch(`https://readable4.herokuapp.com/posts/${id}`, {
     method: 'DELETE',
     headers: {
       'Authorization': 'whatever-you-want',
@@ -80,7 +80,7 @@ export const deletePost = (id) => {
 
 const _updatePost = (post) => (
 
-fetch(`https://localhost:5001/posts/${post.id}`, {
+fetch(`https://readable4.herokuapp.com/posts/${post.id}`, {
     method: 'PUT',
     headers: {
       'Authorization': 'whatever-you-want',
@@ -109,7 +109,7 @@ const _upVotePost = (post) => thunkCreator({
     UP_VOTE_POST_FAILURE
   ],
 
-  promise: fetch(`https://localhost:5001/posts/${post.id}`, {
+  promise: fetch(`https://readable4.herokuapp.com/posts/${post.id}`, {
     method: 'POST',
     headers: {
       'Authorization': 'whatever-you-want',
@@ -137,7 +137,7 @@ export const upVotePost = (post) => (dispatch) =>
       DOWN_VOTE_POST_FAILURE
     ],
 
-    promise: fetch(`https://localhost:5001/posts/${post.id}`, {
+    promise: fetch(`https://readable4.herokuapp.com/posts/${post.id}`, {
       method: 'POST',
       headers: {
         'Authorization': 'whatever-you-want',

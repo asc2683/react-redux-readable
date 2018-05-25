@@ -10,6 +10,6 @@ export const fetchCategories = () => thunkCreator({
     FETCH_CATEGORIES_FAILURE
   ],
 
-  promise: fetch('http://localhost:5001/categories', { headers: { 'Authorization': 'whatever-you-want' } })
+  promise: fetch('https://readable4.herokuapp.com/categories', { headers: { 'Authorization': 'whatever-you-want' } })
              .then(response => response.json())
 })
